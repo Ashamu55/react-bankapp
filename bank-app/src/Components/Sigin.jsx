@@ -59,7 +59,7 @@ const Sigin = () => {
   });
 
   return (
-      <div>
+      <div className="flex flex-nowrap">
           <form onSubmit={formik.handleSubmit}>
               <div>
                   <label htmlFor="email">Email</label>

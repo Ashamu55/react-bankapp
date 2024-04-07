@@ -86,69 +86,71 @@ const Signup = () => {
 
   return (
     <>
-      <form onSubmit={formik.handleSubmit}>
-        <div>
-          <label htmlFor="firstName">First Name</label>
-          <input
-            onBlur={formik.handleBlur}
-            type="text"
-            placeholder='Enter first name'
-            id='firstName'
-            name='firstName'
-            onChange={formik.handleChange}
-            value={formik.values.firstName}
-          />
-          {formik.touched.firstName && formik.errors.firstName ? (
-            <div className='text-red-500'>{formik.errors.firstName}</div>
-          ) : null}
-        </div>
-        <div>
-          <label htmlFor="lastName">Last Name</label>
-          <input
-            onBlur={formik.handleBlur}
-            type="text"
-            placeholder='Enter last name'
-            id='lastName'
-            name='lastName'
-            onChange={formik.handleChange}
-            value={formik.values.lastName}
-          />
-          {formik.touched.lastName && formik.errors.lastName ? (
-            <div className='text-red-500'>{formik.errors.lastName}</div>
-          ) : null}
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            onBlur={formik.handleBlur}
-            type="text"
-            placeholder='Enter email'
-            id='email'
-            name='email'
-            onChange={formik.handleChange}
-            value={formik.values.email}
-          />
-          {formik.touched.email && formik.errors.email ? (
-            <div className='text-red-500'>{formik.errors.email}</div>
-          ) : null}
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            onBlur={formik.handleBlur}
-            type="text"
-            placeholder='Enter password'
-            id='password'
-            name='password'
-            onChange={formik.handleChange}
-            value={formik.values.password}
-          />
-          {formik.touched.password && formik.errors.password ? (
-            <div className='text-red-500'>{formik.errors.password}</div>
-          ) : null}
-        </div>
-        <button type="submit">SIGN UP</button>
-      </form>
+    <div className="singing flex flex-nowrap justify-center">
+    <form onSubmit={formik.handleSubmit}>
+      <div>
+        <label htmlFor="firstName">First Name</label>
+        <input
+          onBlur={formik.handleBlur}
+          type="text"
+          placeholder='Enter first name'
+          id='firstName'
+          name='firstName'
+          onChange={formik.handleChange}
+          value={formik.values.firstName}
+        />
+        {formik.touched.firstName && formik.errors.firstName ? (
+          <div className='text-red-500'>{formik.errors.firstName}</div>
+        ) : null}
+      </div>
+      <div>
+        <label htmlFor="lastName">Last Name</label>
+        <input
+          onBlur={formik.handleBlur}
+          type="text"
+          placeholder='Enter last name'
+          id='lastName'
+          name='lastName'
+          onChange={formik.handleChange}
+          value={formik.values.lastName}
+        />
+        {formik.touched.lastName && formik.errors.lastName ? (
+          <div className='text-red-500'>{formik.errors.lastName}</div>
+        ) : null}
+      </div>
+      <div>
+        <label htmlFor="email">Email</label>
+        <input
+          onBlur={formik.handleBlur}
+          type="text"
+          placeholder='Enter email'
+          id='email'
+          name='email'
+          onChange={formik.handleChange}
+          value={formik.values.email}
+        />
+        {formik.touched.email && formik.errors.email ? (
+          <div className='text-red-500'>{formik.errors.email}</div>
+        ) : null}
+      </div>
+      <div>
+        <label htmlFor="password">Password</label>
+        <input
+          onBlur={formik.handleBlur}
+          type="text"
+          placeholder='Enter password'
+          id='password'
+          name='password'
+          onChange={formik.handleChange}
+          value={formik.values.password}
+        />
+        {formik.touched.password && formik.errors.password ? (
+          <div className='text-red-500'>{formik.errors.password}</div>
+        ) : null}
+      </div>
+      <button type="submit">SIGN UP</button>
+    </form>
+    </div>
     </>
   )
 }
