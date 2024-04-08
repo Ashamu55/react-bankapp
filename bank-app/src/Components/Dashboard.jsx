@@ -1,7 +1,7 @@
 import axios from 'axios'
 // import React, { useEffect } from 'react'
 import React, { useEffect, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
 let navigate = useNavigate()
@@ -20,8 +20,8 @@ const [userData, setUserData] = useState(null);
     })
     .then((res)=>{
         if(res.data.status === true){
+          setUserData(res.data.user);
           console.log("Success");
-          setUserData(res.data.user); 
         }else{
           localStorage.removeItem('token')
           navigate("/sigin")
@@ -32,17 +32,21 @@ const [userData, setUserData] = useState(null);
         console.error("Error occurred while fetching user data:", error);
         // Handle error if needed
       });
-  }, [navigate])
+      setUserData();
+  }, [])
   
   return (
     <>
-         {userData && (
-        <div>
-          <h2>Welcome, {userData.firstName} {userData.lastName}</h2>
-          <p>Email: {userData.email}</p>
-          {/* Render other user data as needed */}
+         <div>
+            <h1>User Dashboard</h1>
+            {userData && (
+                <div>
+                    <h2>Welcome, {userData.firstName} {userData.lastName}</h2>
+                    <p>Email: {userData.email}</p>
+                    {/* Render other user data as needed */}
+                </div>
+            )}
         </div>
-      )}
     </>
   )
 }
