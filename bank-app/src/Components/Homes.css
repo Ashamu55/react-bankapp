@@ -1,4 +1,4 @@
-.start{
+.start {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,40 +7,44 @@
     margin-top: 150px;
 }
 
-.start>img{
+.start>img {
     width: 650px;
 }
 
-.Get{
+.Get {
     margin-top: -170px;
 }
 
-.Get>h1{
+.Get>h1 {
     font-size: 64px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 }
 
-.Get>p{
+.Get>p {
     font-size: 26px;
     font-family: 'arial', serif;
 }
 
-.account{
+.account {
     margin-left: 1100px;
     margin-top: -250px;
     padding: 0px 100px;
 }
 
-.create{
+.create {
     width: 300px;
     padding: 8px;
-    background-color:#3ea9df;
+    background-color: #3ea9df;
+    font-style: oblique;
+    font-weight: bold;
 }
 
-.sign{
+.sign {
     width: 300px;
     padding: 8px;
-    background-color:#81949e;
+    background-color: #81949e;
     margin-top: 30px;
+    font-style: oblique;
+    font-weight: bold;
 }
