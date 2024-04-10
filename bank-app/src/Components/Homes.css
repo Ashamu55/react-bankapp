@@ -48,3 +48,70 @@
     font-style: oblique;
     font-weight: bold;
 }
+
+@media screen and (min-width: 768px) {
+    .start {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        gap: 10px; /* Reduced gap between items */
+        margin-top: 20px;
+    }
+
+    .start>img {
+        width: 650px;
+    }
+
+    .account {
+        margin-top: 40px; /* Increased top margin for spacing */
+        margin-left: 120px;
+        padding: 0px 100px;
+    }
+
+    .Get {
+        margin-top: 10px;
+    }
+
+    .Get>p {
+        font-size: 26px;
+        font-family: 'arial', serif;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .account {
+        margin-left: 500px;
+        margin-top: 50px;
+        padding: 0px 100px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .start {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        gap: 10px; /* Reduced gap between items */
+        margin-top: 20px;
+    }
+
+    .account {
+        margin-top: 35px; /* Increased top margin for spacing */
+        margin-left: -50px;
+        padding: 0px 100px;
+    }
+
+    .Get {
+        margin-top: -20px;
+    }
+
+    .Get>h1 {
+        font-size: 30px;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+    }
+    
+
+    .Get>p {
+        font-size: 20px;
+        font-family: 'arial', serif;
+        margin-top: 20px;
+    }
+}
