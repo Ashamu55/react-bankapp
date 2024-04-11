@@ -1,54 +1,65 @@
-import axios from 'axios'
-// import React, { useEffect } from 'react'
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
-let navigate = useNavigate()
-const [userData, setUserData] = useState(null);
+  const navigate = useNavigate();
+  const [users, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    let url = "http://localhost:5000/student/dashboard"
-    let token = localStorage.getItem('token')
-    axios
-    .get(url,{
-      headers:{
-        Authorization: `Bearer ${token}`,
-        "Content-type": "application/json",
-        Accept:"application/json"
-      }
-    })
-    .then((res)=>{
-        if(res.data.status === true){
-          setUserData(res.data.user);
-          console.log("Success");
-        }else{
-          localStorage.removeItem('token')
-          navigate("/sigin")
-          console.log(res.status);
+    const fetchData = async () => {
+      try {
+        const url = "http://localhost:5000/student/dashboard";
+        const token = localStorage.getItem('token');
+        const response = await axios.get(url, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-type": "application/json",
+            Accept: "application/json"
+          }
+        });
+        // console.log(response.data.status);
+        if (response.data.status ===  true) {
+            console.log(response);
+          console.log("User data fetched successfully");
+          setUser(response.data.user);
+        } else {
+            localStorage.removeItem('token');
+            navigate("/sigin");
+            console.log("User not authenticated");
         }
-    })
-    .catch((error) => {
+      } catch (error) {
         console.error("Error occurred while fetching user data:", error);
-        // Handle error if needed
-      });
-      setUserData();
-  }, [])
-  
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [navigate]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
   return (
     <>
-         <div>
-            <h1>User Dashboard</h1>
-            {userData && (
-                <div>
-                    <h2>Welcome, {userData.firstName} {userData.lastName}</h2>
-                    <p>Email: {userData.email}</p>
-                    {/* Render other user data as needed */}
-                </div>
-            )}
+      {users && (
+        <div>
+          <h2>Welcome, {users.firstName} {users.lastName}</h2>
+          <p>Email: {users.email}</p>
+          {/* Render other user data as needed */}
         </div>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

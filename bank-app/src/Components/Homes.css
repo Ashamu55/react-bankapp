@@ -27,7 +27,7 @@
 }
 
 .account {
-    margin-left: 1100px;
+    margin-left: 900px;
     margin-top: -250px;
     padding: 0px 100px;
 }
@@ -49,9 +49,9 @@
     font-weight: bold;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
     .start {
-        flex-direction: column; /* Stack items vertically on smaller screens */
+        flex-direction: column; 
         gap: 10px; /* Reduced gap between items */
         margin-top: 20px;
     }
@@ -79,8 +79,8 @@
 
 @media screen and (min-width: 1440px) {
     .account {
-        margin-left: 500px;
-        margin-top: 50px;
+        margin-left: 900px;
+        margin-top: -250px;
         padding: 0px 100px;
     }
 }

@@ -76,24 +76,61 @@ const loginUser = async (req, res) => {
     res.status(200).json({
         Message: 'Login successful',
         token: token,
-        user: user
+        user: user,
+        status: 200
     });
     console.log("Login successful");
 };
 
 const dashboard = async (req, res) => {
-    let token = req.headers.authorization.split(" ")[1]
-    console.log(token);
-    jwt.verify(token, secret, (err, result) => {
-        if (err) {
-            console.log(err);
-            res.send({status: false, message: "Invalid token", result})
-        }else{
-            console.log(result);
-            res.send({status: true, message: "Welcome", result})
+    try {
+        const token = req.headers.authorization.split(" ")[1];
+        const decoded = jwt.verify(token, secret);
+        const userId = decoded.id;
+
+        // Assuming userModel represents your Mongoose model for users
+        const user = await userModel.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ status: false, message: "User not found" });
         }
-    })
-}
+
+        // Send user information as response
+        return res.status(200).json({ status: true, message: "User found", user });
+    } catch (error) {
+        console.error("Error fetching user data:", error);
+        return res.status(500).json({ status: false, message: "Internal Server Error" });
+    }
+};
 
 
-module.exports = {welcomeUser, about, login, register, registerUser, loginUser, dashboard}
+// const dashboard = async (req, res) => {
+    // console.log(req.body);
+    // let token = req.headers.authorization.split(" ")[1]
+    // console.log(token);
+    // jwt.verify(token, secret, (err, result) => {
+        // if (err) {
+            // console.log(err);
+            // res.send({status: false, message: "Invalid token", result})
+        // }else{
+            // console.log(result);
+            // res.send({status: true, message: "Welcome", result})
+        // }
+    // })
+// }
+
+// user.controller.js
+
+// const getUserData = async (req, res) => {
+//   try {
+    // const users = await userModel.find();
+    // res.status(200).json(users);
+//   } catch (error) {
+    // console.error('Error fetching user data:', error);
+    // res.status(500).json({ message: 'Error fetching user data' });
+//   }
+// };
+
+
+
+module.exports = {welcomeUser, about, login, register, registerUser, loginUser, dashboard,}
