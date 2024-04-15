@@ -7,6 +7,23 @@
     margin-top: 150px;
 }
 
+body {
+    display: block;
+    position: relative;
+    top: -2px;
+    height: 250px;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1920 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(47, 73, 94, 1)" d="M 0 200 C 971 200 0 110 971 110 L 971 110 L 971 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(47, 73, 94, 1)" d="M 970 110 C 1920 110 970 200 1920 200 L 1920 200 L 1920 0 L 970 0 Z" stroke-width="0"></path> </svg>');
+    background-size: cover;
+    background-repeat: no-repeat;
+   }
+   
+   @media (max-width:1919px) {
+    .div {
+      background-size: contain;
+    }
+   }
+   
+
 .start>img {
     width: 650px;
 }
