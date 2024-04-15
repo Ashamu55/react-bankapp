@@ -86,7 +86,7 @@ const Signup = () => {
 
   return (
     <>
-    <div className="flex flex-nowrap justify-center">
+    <div className="Ohoona flex flex-nowrap justify-center">
     <form onSubmit={formik.handleSubmit}>
       <div>
         <label htmlFor="firstName">First Name</label>

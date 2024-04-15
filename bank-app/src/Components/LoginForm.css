@@ -33,4 +33,19 @@
     background-color: #0056b3;
     color: #fff;
   }
-  
+
+  .web{
+    margin-top: 250px !important;
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+    /* background-color: #ccc; */
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px 5px #f8f3f3;
+  }
+
+  @media screen and (max-width: 768px) {
+    .web{
+      width: 100%;
+    }
+  }
