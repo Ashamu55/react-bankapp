@@ -1,11 +1,11 @@
 import React from 'react'
 import Wallet from "../assets/Images/Wallet.gif"
-import './Homes.css';
+import './styles/Homes.css';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-        <>
+        <div className='body'>
             <div className='Old'>
                 <div className='start'>
                     <img src={Wallet} alt="" />
@@ -20,7 +20,7 @@ const Home = () => {
                     <button className='sign'><Link to="/sigin">Sign in to Continue</Link></button>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

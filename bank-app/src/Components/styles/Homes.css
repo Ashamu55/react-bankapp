@@ -1,0 +1,143 @@
+.start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 100px;
+    margin-top: 150px;
+}
+
+.body {
+    display: block;
+    position: relative;
+    top: -2px;
+    height: 250px;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1920 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(47, 73, 94, 1)" d="M 0 200 C 971 200 0 110 971 110 L 971 110 L 971 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(47, 73, 94, 1)" d="M 970 110 C 1920 110 970 200 1920 200 L 1920 200 L 1920 0 L 970 0 Z" stroke-width="0"></path> </svg>');
+    background-size: cover;
+    background-repeat: no-repeat;
+   }
+   
+   @media (max-width:1919px) {
+    .div {
+      background-size: contain;
+    }
+   }
+   
+
+.start>img {
+    width: 650px;
+}
+
+.Get {
+    margin-top: -170px;
+}
+
+.Get>h1 {
+    font-size: 64px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.Get>p {
+    font-size: 26px;
+    font-family: 'arial', serif;
+}
+
+.account {
+    margin-left: 900px;
+    margin-top: -250px;
+    padding: 0px 100px;
+}
+
+.create {
+    width: 300px;
+    padding: 8px;
+    background-color: #3ea9df !important;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.sign {
+    width: 300px;
+    padding: 8px;
+    background-color: #81949e !important;
+    margin-top: 30px;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .start {
+        flex-direction: column; 
+        gap: 10px; /* Reduced gap between items */
+        margin-top: 20px;
+    }
+
+    .start>img {
+        width: 650px;
+    }
+
+    .account {
+        margin-top: 40px; /* Increased top margin for spacing */
+        margin-left: 120px;
+        padding: 0px 100px;
+    }
+
+    .Get {
+        margin-top: 10px;
+    }
+
+    .Get>p {
+        font-size: 26px;
+        font-family: 'arial', serif;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .account {
+        margin-left: 900px;
+        margin-top: -250px;
+        padding: 0px 100px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .start {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        gap: 10px; /* Reduced gap between items */
+        margin-top: 20px;
+    }
+
+    .account {
+        margin-top: 35px; /* Increased top margin for spacing */
+        margin-left: -50px;
+        padding: 0px 100px;
+    }
+
+    .Get {
+        margin-top: -20px;
+    }
+
+    .Get>h1 {
+        margin-top: 60px;
+        font-size: 30px;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+    }
+    
+
+    .Get>p {
+        font-size: 20px;
+        font-family: 'arial', serif;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (min-width: 1441px) {
+    .account {
+        margin-left: 1100px;
+        margin-top: -250px;
+        padding: 0px 100px;
+    }
+}

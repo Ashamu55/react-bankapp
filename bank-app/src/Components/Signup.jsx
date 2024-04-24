@@ -1,4 +1,4 @@
-import './BankForm.css';
+import './styles/BankForm.css';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';

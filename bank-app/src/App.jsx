@@ -4,6 +4,7 @@ import Signup from './Components/Signup'
 import Sigin from './Components/Sigin'
 import Home from './Components/Home'
 import Dashboard from './Components/Dashboard'
+import Upload from './Components/Upload'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     <Route path="/signup" element={<Signup />} />
     <Route path="/sigin" element={<Sigin />} />
     <Route path="/dashboard" element={<Dashboard />} />
+    <Route path="/upload" element={<Upload />} />
     </Routes>
     </>
   )

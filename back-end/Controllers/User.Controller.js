@@ -3,6 +3,13 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 require("dotenv").config
 let secret = process.env.SECRET
+const cloudinary = require("cloudinary")
+
+cloudinary.config({ 
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY, 
+    api_secret: process.env.API_SECRET 
+  });
 
 const welcomeUser = (req, res) => {
     res.send("Welcome to the user page")
@@ -70,7 +77,7 @@ const loginUser = async (req, res) => {
         return res.status(400).json({ Message: 'Wrong login details' });
     }
 
-    const token = jwt.sign({ id: user._id }, secret, { expiresIn: 10 });
+    const token = jwt.sign({ id: user._id }, secret, { expiresIn: "2day" });
     console.log('Token:', token);
 
     res.status(200).json({
@@ -103,6 +110,32 @@ const dashboard = async (req, res) => {
     }
 };
 
+const uploadProfile = async (req, res) => {
+    let file =req.body.myFile;
+
+    cloudinary.uploader.upload(file, (result, error) => {
+        if(error)
+         {
+            console.log(error);
+        }else{
+            console.log(result);
+            res.send({status: true, message: "suucessfully uploaded", result});
+        }
+    })
+}
+
+const uploadImage = async (req, res) => {
+  try {
+    const imageData = req.body.imageData;
+    const image = new Image({ imageData });
+    await image.save();
+    res.status(201).json({ message: 'Image uploaded successfully' });
+  } catch (error) {
+    console.error('Error uploading image:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
 
 // const dashboard = async (req, res) => {
     // console.log(req.body);
@@ -133,4 +166,4 @@ const dashboard = async (req, res) => {
 
 
 
-module.exports = {welcomeUser, about, login, register, registerUser, loginUser, dashboard,}
+module.exports = {welcomeUser, about, login, register, registerUser, loginUser, dashboard, uploadProfile, uploadImage}

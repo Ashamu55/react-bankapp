@@ -1,7 +1,6 @@
 const express = require ("express");
 const router = express.Router();
-const {welcomeUser, about, login, register, loginUser, registerUser, dashboard,getUserData} = require("../Controllers/User.Controller");
-const userModel = require("../Models/user.model");
+const {welcomeUser, about, login, register, loginUser, registerUser, dashboard,getUserData, uploadProfile} = require("../Controllers/User.Controller");
 
 
 router.get("/", welcomeUser);
@@ -11,6 +10,7 @@ router.get("/login", login);
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.get("/dashboard", dashboard);
+router.post("/upload", uploadProfile);
 // router.get("/getUserData", getUserData);
 
 // router.get('/api/users', async (req, res) => {
